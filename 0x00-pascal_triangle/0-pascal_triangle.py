@@ -1,17 +1,16 @@
 #!/usr/bin/python3
 """0-pascal_triangle.py - a module for creating pascal triangle"""
 
+
 def pascal_triangle(n):
-    """Create a function def pascal_triangle(n): that returns a list of lists
-    of integers representing the Pascal’s triangle of n
-    """
-    res = []
+    """Create pascal triangel of n level"""
+    triangle = []
     if n > 0:
-        for i in range(1, n + 1):
-            level = []
-            C = 1
-            for j in range(1, i + 1):
-                level.append(C)
-                C = C * (i - j) // j
-            res.append(level)
-    return res
+        for level in range(1, n + 1):
+            level_angle = []
+            angle = 1
+            for row in range(1, level + 1):
+                level_angle.append(angle)
+                angle = angle * (level - row) // row
+            triangle.append(level_angle)
+    return triangle
