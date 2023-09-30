@@ -7,7 +7,7 @@ def pascal_triangle(n):
     """Calculates and form pascal triangle of n level"""
     # check if n is zero
     if n <= 0:
-        return
+        return []
 
     # create triangle container
     triangle = []
