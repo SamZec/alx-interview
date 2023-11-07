@@ -8,12 +8,12 @@ if len(argv) != 2:
     exit(1)
 
 try:
-    n_q = int(argv[1])
+    N = int(argv[1])
 except ValueError:
     print('N must be a number')
     exit(1)
 
-if n_q < 4:
+if N < 4:
     print('N must be at least 4')
     exit(1)
 
@@ -24,7 +24,7 @@ def solve_nqueens(n):
         return [[]]
     inner_solution = solve_nqueens(n - 1)
     return [solution + [(n, i + 1)]
-            for i in range(n_q)
+            for i in range(N)
             for solution in inner_solution
             if safe_queen((n, i + 1), solution)]
 
@@ -45,8 +45,8 @@ def safe_queen(sqr, queens):
     return True
 
 
-for answer in reversed(solve_nqueens(n_q)):
+for items in reversed(solve_nqueens(N)):
     result = []
-    for p in [list(p) for p in answer]:
-        result.append([i - 1 for i in p])
+    for item in [list(item) for item in items]:
+        result.append([i - 1 for i in item])
     print(result)
